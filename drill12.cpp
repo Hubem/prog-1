@@ -16,7 +16,6 @@ int main(){
 	
 	Point t1 {100,100};
 	Simple_window win{t1,600,400,"My window"};
-	
 	win.wait_for_button();
 	
 	Axis xa {Axis::x, Point{20,300},280,10,"x axis"};
@@ -71,12 +70,39 @@ int main(){
 	win.set_label("Fill");
 	win.wait_for_button();
 	
-	Text t {Point{150,150}, "Hello, graphical world!"};
+	Text t {Point{100,50}, "Hello, graphical world!"};
 	win.attach(t);
 	win.set_label("Text");
 	win.wait_for_button();
 	
-			
+	
+	Image ii {Point(100,50),"badge.jpg"};
+	win.attach(ii);
+	win.set_label("Image");
+	win.wait_for_button();
+	
+	ii.move(150,200);
+	win.set_label("Image move");
+	win.wait_for_button();
+	
+	Circle c {Point{100,200},50};
+	Ellipse e {Point{100,200}, 75,25};
+	e.set_color(Color::dark_red);
+	Mark m {Point(100,200),'x'};
+	ostringstream oss;
+	oss << "screen size: " << x_max() << "*" << y_max()
+	<< "; window size: " << win.x_max() << "*" << win.y_max();
+	Text sizes {Point{100,20},oss.str()};
+	Image badge {Point{125,125},"badge.jpg"}; // 320*240-pixel gif
+	badge.set_mask(Point{40,40},200,150); // display center part of image
+	win.attach(c);
+	win.attach(m);
+	win.attach(e);
+	win.attach(sizes);
+	win.attach(badge);
+	win.set_label("The rest");
+	win.wait_for_button();
+		
 	}catch(exception& e) {
 	cerr<<"exception: "<<e.what()<<'\n';
 	return 1;
