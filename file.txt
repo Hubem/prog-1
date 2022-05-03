@@ -1,0 +1,10 @@
+monitor 58 199.99
+konyv 14 62.73
+asztal 4 287.74
+kanape 2011 787.80
+bogre 5 11.46
+kenyer 17 3.56
+viz 2 11.98
+telefon 6 500.32
+szek 15 298.73
+toll 83 73.44
